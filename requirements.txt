@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+python-dotenv
+transformers
+torchaudio
+langchain
+langchain-community
+langchain-openai
+soundfile
+numpy
