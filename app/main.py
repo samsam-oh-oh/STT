@@ -12,8 +12,11 @@ app = FastAPI(
     description="슬라이딩 윈도우 기반 한국어 STT API",
     version="1.0"
 )
-
+@app.get("/")
+def root():
+    return {"message": "이곳은 슬라이딩 윈도우 기반 STT API입니다. /docs에서 테스트하세요."}
 @app.post("/transcribe-audio/")
+
 async def transcribe_audio(file: UploadFile = File(...)):
     file_location = f"app/{file.filename}"
     with open(file_location, "wb") as f:
