@@ -5,6 +5,9 @@ import os
 from app.whisper_sliding import whisper_sliding_inference
 from app.postprocess import clean_transcription
 
+from dotenv import load_dotenv
+load_dotenv()
+
 SAVE_PATH = "data/qa.txt"
 os.makedirs("data",exist_ok=True)
 app = FastAPI(
@@ -15,8 +18,8 @@ app = FastAPI(
 @app.get("/")
 def root():
     return {"message": "이곳은 슬라이딩 윈도우 기반 STT API입니다. /docs에서 테스트하세요."}
-@app.post("/transcribe-audio/")
 
+@app.post("/transcribe-audio/")
 async def transcribe_audio(file: UploadFile = File(...)):
     file_location = f"app/{file.filename}"
     with open(file_location, "wb") as f:

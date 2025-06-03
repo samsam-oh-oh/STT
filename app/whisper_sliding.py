@@ -3,7 +3,8 @@ import tempfile
 import soundfile as sf
 import numpy as np
 import requests
-
+from dotenv import load_dotenv
+load_dotenv()
 HF_ENDPOINT = os.getenv("HF_ENDPOINT")
 HF_API_TOKEN = os.getenv("HF_API_TOKEN")
 
